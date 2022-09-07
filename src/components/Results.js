@@ -11,7 +11,7 @@ function Results() {
   return (
     <>
       <Typography variant="h6" textAlign="center">
-        Prediction for: {name}
+        Prediction for {name}
       </Typography>
       <Box
         sx={{
