@@ -1,4 +1,5 @@
 import { Card, Typography } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import { Box, Container } from "@mui/system";
 import { useContext } from "react";
 import Context from "../context/Context";
@@ -8,8 +9,9 @@ import Nation from "./Nation";
 
 function Results() {
   const { gender, age, nation, name } = useContext(Context);
+
   return (
-    <>
+    <Container>
       <Typography variant="h6" textAlign="center">
         Prediction for {name}
       </Typography>
@@ -18,16 +20,19 @@ function Results() {
           display: "flex",
           justifyContent: "space-around",
           flexWrap: "wrap",
-          gap: 2,
           marginBottom: 4,
           marginTop: 5,
         }}
       >
-        <Age age={age} />
-        <Gender gender={gender} />
-        <Nation nation={nation} />
+        {age.name ? <Age age={age} /> : <CircularProgress />}
+        {gender.name ? <Gender gender={gender} /> : <CircularProgress />}
+        {nation.country.length > 2 ? (
+          <Nation nation={nation} />
+        ) : (
+          <CircularProgress />
+        )}
       </Box>
-    </>
+    </Container>
   );
 }
 

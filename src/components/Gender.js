@@ -2,7 +2,7 @@ import { Card, CardContent, Divider, Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Box, Container } from "@mui/system";
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
 
@@ -35,12 +35,26 @@ CircularProgressWithLabel.propTypes = {
 };
 
 function Gender({ gender }) {
-  const prob = gender.probability * 100;
   const [progress, setProgress] = useState(1);
+  const [progress2, setProgress2] = useState(1);
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) =>
-        prevProgress >= prob ? prob : prevProgress + 2
+        prevProgress >= gender.probability
+          ? gender.probability
+          : prevProgress + 2
+      );
+    }, 100);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress2((prevProgress) =>
+        prevProgress >= 100 - gender.probability
+          ? 100 - gender.probability
+          : prevProgress + 2
       );
     }, 100);
     return () => {
@@ -48,14 +62,14 @@ function Gender({ gender }) {
     };
   }, []);
   return (
-    <Card sx={{ minWidth: 250 }} variant="outlined">
+    <Card sx={{ height: 150 }} variant="outlined">
       <CardContent>
         <Typography
           color="text.secondary"
           gutterBottom
           sx={{ fontSize: 14, textAlign: "center" }}
         >
-          Gender Prediction
+          Gender Prediction {gender.name}
         </Typography>
         <Divider />
         <Box
@@ -69,22 +83,29 @@ function Gender({ gender }) {
         >
           {" "}
           {gender.gender === "male" ? (
-            <Box>
-              <MaleIcon color="primary" sx={{ marginTop: 1, marginRight: 1 }} />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-around",
+              }}
+            >
+              <MaleIcon color="primary" sx={{ marginTop: 1 }} />
               <CircularProgressWithLabel value={progress} />
+              <FemaleIcon color="primary" sx={{ marginTop: 1 }} />
+              <CircularProgressWithLabel value={progress2} />
             </Box>
           ) : (
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-around",
+                gap: 1,
               }}
             >
-              <FemaleIcon
-                color="primary"
-                sx={{ marginTop: 1, marginRight: 1 }}
-              />
+              <FemaleIcon color="primary" sx={{ marginTop: 1 }} />
               <CircularProgressWithLabel value={progress} />
+              <MaleIcon color="primary" sx={{ marginTop: 1 }} />
+              <CircularProgressWithLabel value={progress2} />
             </Box>
           )}
         </Box>

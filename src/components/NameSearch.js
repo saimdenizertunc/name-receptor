@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import Context from "../context/Context";
 
 function NameSearch() {
-  const { setName, getGender } = useContext(Context);
+  const { setName, getData } = useContext(Context);
   const [input, setInput] = useState("");
 
   const handleChange = (e) => {
@@ -13,6 +13,7 @@ function NameSearch() {
 
   const handleSubmit = () => {
     setName(input);
+    getData(input);
   };
 
   return (
@@ -24,7 +25,15 @@ function NameSearch() {
         fullWidth
         margin="dense"
       />
-      <Box sx={{ display: "flex", justifyContent: "center", margin: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          margin: 2,
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Stack direction="row" spacing={2}>
           <Button
             onClick={handleSubmit}
