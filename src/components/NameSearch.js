@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import Context from "../context/Context";
 
 function NameSearch() {
-  const { setName } = useContext(Context);
+  const { setName, getGender } = useContext(Context);
   const [input, setInput] = useState("");
 
   const handleChange = (e) => {
