@@ -1,8 +1,8 @@
 import { Card, CardContent, Divider, Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Box, Container } from "@mui/system";
+import { Box } from "@mui/system";
 import PropTypes from "prop-types";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
 
@@ -48,7 +48,7 @@ function Gender({ gender }) {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [gender.probability]);
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress2((prevProgress) =>
@@ -60,7 +60,7 @@ function Gender({ gender }) {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [100 - gender.probability]);
   return (
     <Card sx={{ height: 150 }} variant="outlined">
       <CardContent>

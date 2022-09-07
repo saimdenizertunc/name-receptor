@@ -14,7 +14,7 @@ function Age({ age }) {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [age.age]);
   return (
     <Card sx={{ height: 150 }} variant="outlined">
       <CardContent>

@@ -1,4 +1,4 @@
-import { Card, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Box, Container } from "@mui/system";
 import { useContext } from "react";

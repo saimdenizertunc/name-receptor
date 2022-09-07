@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardContent,
   Divider,
@@ -12,8 +11,8 @@ import React, { useState } from "react";
 import names from "../countrydata/names";
 
 function Nation({ nation }) {
-  const [other, setOther] = useState(names[nation.country[2].country_id]);
-  const [other2, setOther2] = useState(names[nation.country[1].country_id]);
+  const [other] = useState(names[nation.country[2].country_id]);
+  const [other2] = useState(names[nation.country[1].country_id]);
   return (
     <Card sx={{ height: 300 }} variant="outlined">
       <CardContent>

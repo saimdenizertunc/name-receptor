@@ -14,12 +14,6 @@ function Main() {
 
   // api calls
   const getGender = function (input) {
-    const example_response = {
-      name: "peter",
-      gender: "male",
-      probability: 0.56,
-      count: 165452,
-    };
     const url = "https://api.genderize.io/?name=" + input;
     axios.get(url).then((res) => {
       const responseData = res.data;
@@ -29,7 +23,6 @@ function Main() {
   };
 
   const getAge = function (input) {
-    const example_response = { name: "michael", age: 17, count: 233482 };
     const url = "https://api.agify.io/?name=" + input;
     axios.get(url).then((res) => {
       const responseData = res.data;
@@ -39,14 +32,6 @@ function Main() {
   };
 
   const getNation = function (input) {
-    const example_response = {
-      name: "michael",
-      country: [
-        { country_id: "US", probability: 0.08986482266532715 },
-        { country_id: "AU", probability: 0.05976757527083082 },
-        { country_id: "NZ", probability: 0.04666974820852911 },
-      ],
-    };
     const url = "https://api.nationalize.io/?name=" + input;
     axios.get(url).then((res) => {
       const responseData = res.data;
