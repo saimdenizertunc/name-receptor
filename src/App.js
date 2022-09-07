@@ -1,5 +1,5 @@
 import { CssBaseline } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
+import { brown, lightBlue } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -10,6 +10,9 @@ function App() {
       mode: "light",
       primary: {
         main: lightBlue[500],
+      },
+      secondary: {
+        main: brown[900],
       },
     },
   });

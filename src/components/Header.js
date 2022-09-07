@@ -14,7 +14,6 @@ function Header() {
             fontFamily: "monospace",
             fontWeight: 700,
             letterSpacing: ".1rem",
-            color: "inherit",
             textDecoration: "none",
             display: "flex",
             justifyContent: "center",
