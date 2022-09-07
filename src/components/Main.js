@@ -59,7 +59,7 @@ function Main() {
   const getData = function (input) {
     setAge({});
     setGender({});
-    setNation({ name: "ayşe", country: [] });
+    setNation({ name: "test", country: [] });
     setTimeout(() => {
       getAge(input);
     }, 1000);

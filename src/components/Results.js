@@ -24,7 +24,7 @@ function Results() {
           marginTop: 5,
         }}
       >
-        {age.name ? <Age age={age} /> : <CircularProgress />}
+        {age.age > 0 ? <Age age={age} /> : <CircularProgress />}
         {gender.name ? <Gender gender={gender} /> : <CircularProgress />}
         {nation.country.length > 2 ? (
           <Nation nation={nation} />
