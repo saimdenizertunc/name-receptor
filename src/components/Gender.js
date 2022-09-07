@@ -48,7 +48,7 @@ function Gender({ gender }) {
     return () => {
       clearInterval(timer);
     };
-  }, [gender.probability]);
+  });
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress2((prevProgress) =>
@@ -60,7 +60,7 @@ function Gender({ gender }) {
     return () => {
       clearInterval(timer);
     };
-  }, [100 - gender.probability]);
+  });
   return (
     <Card sx={{ height: 150 }} variant="outlined">
       <CardContent>
