@@ -20,6 +20,11 @@ function NameSearch() {
     <Container>
       <TextField
         onChange={handleChange}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            handleSubmit();
+          }
+        }}
         label="Please Enter Name"
         variant="standard"
         fullWidth

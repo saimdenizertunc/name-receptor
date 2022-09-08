@@ -35,12 +35,19 @@ function Main() {
     axios.get(url).then((res) => {
       const responseData = res.data;
       if (responseData.country.length === 1) {
-        const duplicate = responseData.country[0];
-        responseData.country.push(duplicate);
-        responseData.country.push(duplicate);
+        responseData.country.push({
+          country_id: "-",
+          probability: 0,
+        });
+        responseData.country.push({
+          country_id: "-",
+          probability: 0,
+        });
       } else if (responseData.country.length === 2) {
-        const duplicate = responseData.country[1];
-        responseData.country.push(duplicate);
+        responseData.country.push({
+          country_id: "-",
+          probability: 0,
+        });
       }
       setNation(responseData);
     });
