@@ -26,7 +26,6 @@ function Main() {
     const url = "https://api.agify.io/?name=" + input;
     axios.get(url).then((res) => {
       const responseData = res.data;
-      responseData.age = responseData.age - 14;
       setAge(responseData);
     });
   };
@@ -35,8 +34,14 @@ function Main() {
     const url = "https://api.nationalize.io/?name=" + input;
     axios.get(url).then((res) => {
       const responseData = res.data;
-      const l = responseData.country.length;
-      responseData.l = l;
+      if (responseData.country.length === 1) {
+        const duplicate = responseData.country[0];
+        responseData.country.push(duplicate);
+        responseData.country.push(duplicate);
+      } else if (responseData.country.length === 2) {
+        const duplicate = responseData.country[1];
+        responseData.country.push(duplicate);
+      }
       setNation(responseData);
     });
   };

@@ -35,14 +35,14 @@ CircularProgressWithLabel.propTypes = {
 };
 
 function Gender({ gender }) {
-  const [progress, setProgress] = useState(1);
+  const [progress, setProgress] = useState(10);
   const [progress2, setProgress2] = useState(1);
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) =>
         prevProgress >= gender.probability
           ? gender.probability
-          : prevProgress + 2
+          : prevProgress + 5
       );
     }, 100);
     return () => {
@@ -54,7 +54,7 @@ function Gender({ gender }) {
       setProgress2((prevProgress) =>
         prevProgress >= 100 - gender.probability
           ? 100 - gender.probability
-          : prevProgress + 2
+          : prevProgress + 1
       );
     }, 100);
     return () => {
@@ -69,7 +69,7 @@ function Gender({ gender }) {
           gutterBottom
           sx={{ fontSize: 14, textAlign: "center" }}
         >
-          Gender Prediction {gender.name}
+          Gender Prediction
         </Typography>
         <Divider />
         <Box

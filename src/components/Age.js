@@ -23,7 +23,7 @@ function Age({ age }) {
           gutterBottom
           sx={{ fontSize: 14, textAlign: "center" }}
         >
-          Age Prediction
+          Age Prediction (median)
         </Typography>
         <Divider />
       </CardContent>
@@ -35,7 +35,7 @@ function Age({ age }) {
           alignItems: "center",
         }}
       >
-        {progress ? progress : "Not Found"}
+        {progress && progress}
       </Box>
     </Card>
   );

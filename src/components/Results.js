@@ -25,7 +25,7 @@ function Results() {
         }}
       >
         {age.age > 0 ? <Age age={age} /> : <CircularProgress />}
-        {gender.name ? <Gender gender={gender} /> : <CircularProgress />}
+        {gender.gender ? <Gender gender={gender} /> : <CircularProgress />}
         {nation.country.length > 2 ? (
           <Nation nation={nation} />
         ) : (
