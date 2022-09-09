@@ -1,4 +1,12 @@
-import { Box, Button, Container, Stack, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import React, { useContext, useState } from "react";
 import Context from "../context/Context";
@@ -14,10 +22,19 @@ function NameSearch() {
   const handleSubmit = () => {
     setName(input);
     getData(input);
+    setInput("");
   };
 
   return (
     <Container>
+      <Typography
+        variant="h6"
+        textAlign="center"
+        sx={{ padding: 1, marginTop: 4 }}
+      >
+        Predict Nationality, Gender and Age of a person given their name!
+      </Typography>
+      <Divider />
       <TextField
         onChange={handleChange}
         onKeyPress={(e) => {
@@ -29,6 +46,7 @@ function NameSearch() {
         variant="standard"
         fullWidth
         margin="dense"
+        value={input}
       />
       <Box
         sx={{

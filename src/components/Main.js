@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Divider, Typography } from "@mui/material";
 import React, { useState } from "react";
 import NameSearch from "./NameSearch";
 import Results from "./Results";
@@ -49,6 +48,7 @@ function Main() {
           probability: 0,
         });
       }
+
       setNation(responseData);
     });
   };
@@ -72,15 +72,7 @@ function Main() {
   const data = { name, setName, gender, age, nation, getData };
   return (
     <Context.Provider value={data}>
-      <Typography
-        variant="h6"
-        textAlign="center"
-        sx={{ padding: 1, marginTop: 4 }}
-      >
-        Predict Nationality, Gender and Age of a person given their name!
-      </Typography>
-      <Divider />
-      <NameSearch />
+      {!name && <NameSearch />}
       {name && <Results />}
     </Context.Provider>
   );

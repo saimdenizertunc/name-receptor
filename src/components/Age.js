@@ -36,6 +36,12 @@ function Age({ age }) {
         }}
       >
         {progress && progress}
+        <Typography
+          color="text.secondary"
+          sx={{ fontSize: 10, textAlign: "center" }}
+        >
+          Out of: {age.count}
+        </Typography>
       </Box>
     </Card>
   );
